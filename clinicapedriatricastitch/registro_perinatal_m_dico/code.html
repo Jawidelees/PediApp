@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Registro Perinatal</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-transparent text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+</div>
+</div>
+<!-- Patient Header -->
+<div class="flex p-6 @container bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<div class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-20 w-20 ring-4 ring-primary/10" data-alt="Close up of a newborn baby face" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBnB103Y0A0ZVuDKrdxiW5YDD1eMxgnVxhvrKFewop8P8WeR0YaAw17RUNyCfTQu_fR5EJJ2_iT7cGdlFPZxM6JVvynFr5fMjw_FRff3_qZMtmyUaDPOf-IdVhYybpkFK98QZiV-DaBYwQkxEKvSXQVoCycEDgQ-kqDBBP6yUYw5Aq8RdGFQmhQa59Ntu663u0ZTSlVTeteZoGafzrp4wi2Giv7QSc4cL7pAa6WN6OHozpNWTUjb5b63dP1CD9e0NYjKvYrXoCJUt8");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-[22px] font-bold leading-tight tracking-[-0.015em]">Recién Nacido</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">ID: #29384 • Nacimiento: 20 Oct 2023</p>
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary mt-1 w-fit">Paciente Activo</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-4xl mx-auto w-full p-4 space-y-6">
+<!-- Delivery Data Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">child_care</span>
+                    Datos del Parto
+                </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="flex flex-col flex-1">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Edad Gestacional (Semanas/Días)</p>
+<div class="flex gap-2">
+<input class="form-input flex w-full min-w-0 flex-1 rounded-xl text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary h-12 p-4 text-base" placeholder="Semanas" type="number"/>
+<input class="form-input flex w-full min-w-0 flex-1 rounded-xl text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary h-12 p-4 text-base" placeholder="Días" type="number"/>
+</div>
+</label>
+<div class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Vía de Nacimiento</p>
+<div class="flex gap-3">
+<label class="flex-1 text-sm font-medium leading-normal flex items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 px-4 h-12 text-slate-900 dark:text-slate-100 has-[:checked]:border-primary has-[:checked]:bg-primary/5 relative cursor-pointer transition-all">
+                                Parto Vaginal
+                                <input checked="" class="invisible absolute" name="delivery_method" type="radio"/>
+</label>
+<label class="flex-1 text-sm font-medium leading-normal flex items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 px-4 h-12 text-slate-900 dark:text-slate-100 has-[:checked]:border-primary has-[:checked]:bg-primary/5 relative cursor-pointer transition-all">
+                                Cesárea
+                                <input class="invisible absolute" name="delivery_method" type="radio"/>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Anthropometry Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">straighten</span>
+                    Antropometría
+                </h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium pb-2">Peso al Nacer (g)</p>
+<input class="form-input w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 h-12 p-4" placeholder="3200" type="number"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium pb-2">Longitud (cm)</p>
+<input class="form-input w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 h-12 p-4" placeholder="50.5" type="number"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium pb-2">Circ. Cefálica (cm)</p>
+<input class="form-input w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 h-12 p-4" placeholder="34" type="number"/>
+</label>
+</div>
+</section>
+<!-- Apgar Scores -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">pulse_alert</span>
+                    Puntuación APGAR
+                </h3>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium text-center">Al 1er Minuto</p>
+<div class="flex justify-between items-center bg-slate-50 dark:bg-slate-800/50 p-2 rounded-xl border border-slate-200 dark:border-slate-700">
+<button class="size-8 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 flex items-center justify-center">-</button>
+<span class="text-2xl font-bold text-primary">8</span>
+<button class="size-8 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 flex items-center justify-center">+</button>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium text-center">A los 5 Minutos</p>
+<div class="flex justify-between items-center bg-slate-50 dark:bg-slate-800/50 p-2 rounded-xl border border-slate-200 dark:border-slate-700">
+<button class="size-8 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 flex items-center justify-center">-</button>
+<span class="text-2xl font-bold text-primary">9</span>
+<button class="size-8 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 flex items-center justify-center">+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Screenings -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">chip_extraction</span>
+                    Tamizajes Neonatales
+                </h3>
+<div class="space-y-4">
+<!-- Metabolic -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined text-xl">science</span>
+</div>
+<div>
+<p class="font-medium text-sm">Metabólico</p>
+<p class="text-xs text-slate-500">Talón / Endocrino</p>
+</div>
+</div>
+<select class="form-select text-sm rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 min-w-32">
+<option>Pendiente</option>
+<option>Normal</option>
+<option>Anormal</option>
+</select>
+</div>
+<!-- Hearing -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined text-xl">hearing</span>
+</div>
+<div>
+<p class="font-medium text-sm">Auditivo</p>
+<p class="text-xs text-slate-500">Emisiones otoacústicas</p>
+</div>
+</div>
+<select class="form-select text-sm rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 min-w-32">
+<option>Pasa</option>
+<option>No Pasa</option>
+<option>Pendiente</option>
+</select>
+</div>
+<!-- Cardiac -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</div>
+<div>
+<p class="font-medium text-sm">Cardiaco</p>
+<p class="text-xs text-slate-500">Oximetría de pulso</p>
+</div>
+</div>
+<select class="form-select text-sm rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 min-w-32">
+<option>Normal</option>
+<option>Anormal</option>
+<option>Pendiente</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Action Buttons -->
+<div class="flex gap-4 pt-4 pb-12">
+<button class="flex-1 h-12 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    Descartar
+                </button>
+<button class="flex-[2] h-12 rounded-xl bg-primary text-white font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">save</span>
+                    Guardar Registro
+                </button>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Prescription - Pediatric Care</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="max-w-md mx-auto bg-white dark:bg-slate-900 min-h-screen flex flex-col shadow-xl">
+<!-- Header -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800 justify-between">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">New Prescription</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-transparent text-slate-900 dark:text-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Patient Info Section -->
+<div class="p-4 bg-primary/5 dark:bg-primary/10 border-b border-primary/10">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 border-2 border-primary" data-alt="Close up portrait of a young boy smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACySo4YX7jBBD55LTHZsNaDiZK8bJmAa8egTn-ID_A0lkZTtRrOC3U-meNi7GzeY_p12w-HW18fqe_GiE7KqBryXHTVjTgtI-ZXyf8jZbl1bPez1wRXYwiqmUB6Tf9JCtaWuPJVbHfet3GFzZIUPcK2uGRmHeB48pc9V0-PltUmN8NM2iRDXJxKFN2sUcecBo6sq8VPs_T_fgDAKkO08smEQx0CBRPPdPpYolqjjHQROdqcchbsKezIfze3nKAj8cs59EoWmOAB49y");'></div>
+<div class="flex flex-col">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Alexander Thompson</p>
+<div class="flex gap-2 items-center mt-1">
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Pediatric</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">8 years old</p>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs mt-0.5">ID: #44321 • Weight: 26 kg</p>
+</div>
+</div>
+</div>
+<!-- Medication Form -->
+<div class="flex-1 overflow-y-auto">
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-slate-900 dark:text-white text-sm font-bold uppercase tracking-widest flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-xl">medication</span>
+                    Medication Details
+                </h3>
+<div class="space-y-5">
+<!-- Drug Name -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Drug Name</label>
+<div class="relative">
+<input class="form-input w-full rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white h-12 px-4 focus:ring-primary focus:border-primary" placeholder="e.g., Amoxicillin Suspension" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-slate-400">search</span>
+</div>
+</div>
+<!-- Dosage and Unit -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Dosage</label>
+<input class="form-input w-full rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white h-12 px-4 focus:ring-primary focus:border-primary" placeholder="e.g., 5ml" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Frequency</label>
+<select class="form-select w-full rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white h-12 px-4 focus:ring-primary focus:border-primary">
+<option>Every 8 hours</option>
+<option>Every 12 hours</option>
+<option>Once a day</option>
+<option>Every 6 hours</option>
+<option>As needed (PRN)</option>
+</select>
+</div>
+</div>
+<!-- Duration -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Duration</label>
+<div class="flex items-center gap-3">
+<input class="form-input w-24 rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white h-12 px-4 focus:ring-primary focus:border-primary" type="number" value="5"/>
+<select class="form-select flex-1 rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white h-12 px-4 focus:ring-primary focus:border-primary">
+<option>Days</option>
+<option>Weeks</option>
+<option>Months</option>
+</select>
+</div>
+</div>
+<!-- Notes for parents -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Notes for Parents</label>
+<textarea class="form-textarea w-full rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white min-h-[100px] p-4 focus:ring-primary focus:border-primary" placeholder="e.g., Shake well before use. Administer with food to avoid stomach upset."></textarea>
+</div>
+<button class="flex items-center justify-center gap-2 w-full py-3 rounded-xl border-2 border-dashed border-primary/30 text-primary font-bold hover:bg-primary/5">
+<span class="material-symbols-outlined">add_circle</span>
+                        Add Another Medication
+                    </button>
+</div>
+</div>
+<div class="h-24"></div> <!-- Spacer for fixed footer -->
+</div>
+<!-- Footer Actions -->
+<div class="p-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 fixed bottom-0 max-w-md w-full">
+<div class="flex gap-3">
+<button class="flex-1 flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold py-4 rounded-xl">
+<span class="material-symbols-outlined">save</span>
+                    Draft
+                </button>
+<button class="flex-[2] flex items-center justify-center gap-2 bg-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">send</span>
+                    Generate &amp; Send
+                </button>
+</div>
+<!-- Quick Options -->
+<div class="flex justify-center gap-6 mt-4 opacity-70">
+<button class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-500">picture_as_pdf</span>
+<span class="text-[10px] font-medium uppercase tracking-tighter">PDF</span>
+</button>
+<button class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-500">chat</span>
+<span class="text-[10px] font-medium uppercase tracking-tighter">WhatsApp</span>
+</button>
+<button class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-slate-500">mail</span>
+<span class="text-[10px] font-medium uppercase tracking-tighter">Email</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation (Consistent with App Style) -->
+<div class="hidden"> <!-- Component style reference only, using actual footer actions instead -->
+<div class="flex gap-2 border-t border-slate-100 bg-white px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-xs font-medium">Patients</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<p class="text-xs font-medium">Calendar</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">description</span>
+<p class="text-xs font-medium">Records</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-xs font-medium">Settings</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>

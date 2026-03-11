@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Export Medical Record - Patient Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#13a4ec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101c22",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen flex-col">
+<!-- Header -->
+<header class="flex items-center bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-4 sticky top-0 z-10">
+<div class="flex size-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">arrow_back</span>
+</div>
+<h1 class="ml-4 text-lg font-bold flex-1">Export Patient Record</h1>
+<div class="flex gap-2">
+<button class="material-symbols-outlined p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">more_vert</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-4 md:p-8">
+<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Selection & Patient Info -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Patient Summary Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4">
+<div class="size-20 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="Professional portrait of a young male patient Alexander Thompson" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbuoqYiP6plLH4BU5ipCTnzcaZw19O2y_R7Ypu9rPqSR06w_dXbsLdtK9ldWFJPl-SCsiSN7mEM23769gg0uiiWMsd_w2gNa9R6Q8WSszYZw4Znn72Vv9zWqcsne3pwrgqO9_0kkPODC28Bx3D6tobKbyYnT5Rn1v9PPu9cslGdGD5VOcwvwx-4xZHbDWlBoqx-MGw2OWx7jKcdNg0xLvEekTsfwnm0DsNMOO1BScLClhnJFB0fun_6rhxHGDvaOZcbLBto-SxCX4i')">
+</div>
+<div>
+<h2 class="text-xl font-bold">Alexander Thompson</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">MRN: #4492-01 • 8 years old</p>
+<p class="text-xs text-slate-400 mt-1 italic">Last clinical visit: Oct 24, 2023</p>
+</div>
+</div>
+</div>
+<!-- Options Selection -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-md font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">checklist</span>
+                            Select Export Sections
+                        </h3>
+<div class="space-y-1">
+<label class="flex items-center justify-between py-3 px-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">person</span>
+<span class="text-slate-700 dark:text-slate-200">Patient Demographics</span>
+</span>
+<input checked="" class="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between py-3 px-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">monitoring</span>
+<span class="text-slate-700 dark:text-slate-200">Growth Charts (WHO/CDC)</span>
+</span>
+<input checked="" class="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between py-3 px-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">vaccines</span>
+<span class="text-slate-700 dark:text-slate-200">Vaccination History</span>
+</span>
+<input checked="" class="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between py-3 px-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">description</span>
+<span class="text-slate-700 dark:text-slate-200">Clinical Progress Notes</span>
+</span>
+<input class="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between py-3 px-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">biotech</span>
+<span class="text-slate-700 dark:text-slate-200">Laboratory Results</span>
+</span>
+<input class="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between py-3 px-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">medication</span>
+<span class="text-slate-700 dark:text-slate-200">Active Prescriptions</span>
+</span>
+<input checked="" class="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Report Format -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-md font-bold mb-4">Export Preferences</h3>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center gap-2 p-4 border-2 border-primary bg-primary/5 rounded-xl">
+<span class="material-symbols-outlined text-primary">picture_as_pdf</span>
+<span class="text-xs font-semibold">Standard PDF</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 border-2 border-slate-100 dark:border-slate-800 hover:border-primary/50 transition-colors rounded-xl">
+<span class="material-symbols-outlined text-slate-500">terminal</span>
+<span class="text-xs font-semibold">FHIR JSON</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: PDF Preview -->
+<div class="lg:col-span-7 flex flex-col h-full space-y-4">
+<div class="bg-slate-200 dark:bg-slate-800 rounded-xl p-8 flex-1 flex flex-col items-center overflow-hidden border border-slate-300 dark:border-slate-700 min-h-[500px]">
+<!-- PDF Page Preview -->
+<div class="bg-white dark:bg-slate-900 w-full max-w-2xl shadow-2xl rounded-sm aspect-[1/1.4] p-10 flex flex-col origin-top scale-100">
+<div class="flex justify-between items-start mb-8 border-b-4 border-primary pb-4">
+<div class="flex items-center gap-2 text-primary font-bold text-xl uppercase tracking-wider">
+<span class="material-symbols-outlined">health_and_safety</span>
+                                    City Health Center
+                                </div>
+<div class="text-right text-[10px] text-slate-400 uppercase tracking-widest leading-relaxed">
+                                    Electronic Health Record<br/>Generated: Oct 26, 2023
+                                </div>
+</div>
+<div class="mb-6">
+<h4 class="text-2xl font-black text-slate-800 dark:text-slate-100">Comprehensive Patient Summary</h4>
+<div class="grid grid-cols-2 gap-x-8 gap-y-2 mt-4 text-sm">
+<div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1">
+<span class="text-slate-500">Patient:</span>
+<span class="font-bold">Alexander Thompson</span>
+</div>
+<div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1">
+<span class="text-slate-500">DOB:</span>
+<span class="font-bold">12/05/2015</span>
+</div>
+<div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1">
+<span class="text-slate-500">Gender:</span>
+<span class="font-bold">Male</span>
+</div>
+<div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1">
+<span class="text-slate-500">MRN:</span>
+<span class="font-bold">#4492-01</span>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h5 class="text-xs font-bold text-primary uppercase tracking-widest mb-3 border-l-2 border-primary pl-2">Recent Growth Statistics</h5>
+<div class="bg-slate-50 dark:bg-slate-800 rounded p-4 border border-slate-100 dark:border-slate-700 flex items-center justify-center">
+<div class="w-full h-32 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent flex items-end justify-around px-4">
+<!-- Mock Chart Bars -->
+<div class="w-4 bg-primary/40 h-[40%] rounded-t-sm"></div>
+<div class="w-4 bg-primary/50 h-[55%] rounded-t-sm"></div>
+<div class="w-4 bg-primary/60 h-[70%] rounded-t-sm"></div>
+<div class="w-4 bg-primary/70 h-[85%] rounded-t-sm"></div>
+<div class="w-4 bg-primary h-[95%] rounded-t-sm"></div>
+</div>
+</div>
+<p class="text-[10px] text-slate-400 mt-2 italic text-center">BMI for age percentile (CDC): 68th Percentile</p>
+</div>
+<div class="flex-1 border-t-2 border-slate-50 dark:border-slate-800 pt-4">
+<h5 class="text-xs font-bold text-primary uppercase tracking-widest mb-3 border-l-2 border-primary pl-2">Immunization Record</h5>
+<table class="w-full text-[11px] text-left">
+<thead>
+<tr class="text-slate-400 font-medium">
+<th class="pb-2">Vaccine</th>
+<th class="pb-2">Date Administered</th>
+<th class="pb-2">Status</th>
+</tr>
+</thead>
+<tbody class="text-slate-600 dark:text-slate-300">
+<tr class="border-b border-slate-50 dark:border-slate-800">
+<td class="py-2">MMR (Measles, Mumps, Rubella)</td>
+<td class="py-2">Mar 12, 2019</td>
+<td class="py-2 text-green-600 font-semibold uppercase text-[9px]">Completed</td>
+</tr>
+<tr class="border-b border-slate-50 dark:border-slate-800">
+<td class="py-2">DTaP (Diphtheria, Tetanus, Pertussis)</td>
+<td class="py-2">Jun 05, 2021</td>
+<td class="py-2 text-green-600 font-semibold uppercase text-[9px]">Completed</td>
+</tr>
+<tr>
+<td class="py-2">Varicella</td>
+<td class="py-2">Mar 12, 2019</td>
+<td class="py-2 text-green-600 font-semibold uppercase text-[9px]">Completed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-auto text-[8px] text-slate-300 dark:text-slate-600 flex justify-between">
+<span>Confidential Medical Information - Page 1 of 4</span>
+<span>Authored by: Dr. Sarah Jenkins</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined">download</span>
+                            Download PDF (2.4 MB)
+                        </button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold py-4 rounded-xl transition-all">
+<span class="material-symbols-outlined">share</span>
+                            Share to Secure Portal
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Internal use) -->
+<nav class="flex gap-2 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">group</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Patients</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Calendar</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Records</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Settings</p>
+</a>
+</nav>
+</div>
+</body></html>

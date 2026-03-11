@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .filled-icon { font-variation-settings: 'FILL' 1; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<div class="relative flex h-auto min-h-screen w-full max-w-md mx-auto flex-col bg-white dark:bg-background-dark shadow-xl overflow-x-hidden">
+<!-- Header -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
+<div class="text-slate-700 dark:text-slate-300 flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Esquema de Vacunación</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-xl h-10 w-10 bg-primary/10 text-primary">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+<!-- Patient Profile -->
+<div class="flex p-6 @container bg-white dark:bg-background-dark">
+<div class="flex w-full flex-col gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-20 w-20 border-4 border-primary/20" data-alt="Retrato de un bebé sonriendo suavemente" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAg6StX8QaIUGe91cAxd65EW58iiohXEX_NJqZ3QfiU8HEm9zay1MtCfYmzCGazcR7WYArIM54P6QuqSanB8UXiMIBrNRtb3SUNvO9Jai_uRxy0hC2lOnay_VDF9861lqKHpew33viqb9KFkiHamt2z8Sz0l4TSL5eLLl7SlgsRNgv-UsGlud8213vHPMB30U0gnfVrsuDwNEPzgkQo2ErobX6AKzvXkrR3ddc_gr3Ntfwr0MuJX49KQ---xiGjM6DSVKA2m60bTTlj");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-[-0.015em]">Leo Maxwell</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">6 meses • Grupo sanguíneo A+</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<p class="text-primary text-xs font-semibold">85% Completado</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Search & Filters -->
+<div class="px-4 py-2 sticky top-[65px] bg-white/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+<div class="text-slate-400 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:ring-0 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 px-4 pl-2 text-base font-normal" placeholder="Buscar vacuna (BCG, Rotavirus...)" value=""/>
+</div>
+</label>
+<div class="flex gap-2 py-3 overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-full bg-primary text-white text-sm font-semibold">Todas</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium">Aplicadas</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium">Próximas</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium">Pendientes</button>
+</div>
+</div>
+<!-- Vaccination List -->
+<div class="flex flex-col gap-6 p-4 pb-24">
+<!-- Recién Nacido -->
+<div>
+<h3 class="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-widest mb-3 px-1">Recién Nacido</h3>
+<div class="space-y-3">
+<!-- BCG -->
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/40 shadow-sm">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600">
+<span class="material-symbols-outlined filled-icon">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base leading-tight">BCG</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Dosis única • Tuberculosis</p>
+</div>
+<div class="text-right">
+<p class="text-slate-900 dark:text-slate-100 font-medium text-xs">15 May 2024</p>
+<span class="inline-block px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/20 text-green-600 text-[10px] font-bold">APLICADA</span>
+</div>
+</div>
+<!-- Hepatitis B -->
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/40 shadow-sm">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600">
+<span class="material-symbols-outlined filled-icon">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base leading-tight">Hepatitis B</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Dosis inicial</p>
+</div>
+<div class="text-right">
+<p class="text-slate-900 dark:text-slate-100 font-medium text-xs">15 May 2024</p>
+<span class="inline-block px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/20 text-green-600 text-[10px] font-bold">APLICADA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2 Meses -->
+<div>
+<h3 class="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-widest mb-3 px-1">2 Meses</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/40 shadow-sm">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600">
+<span class="material-symbols-outlined filled-icon">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base leading-tight">Pentavalente</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">1ra Dosis • DPT-HB-Hib</p>
+</div>
+<div class="text-right">
+<p class="text-slate-900 dark:text-slate-100 font-medium text-xs">18 Jul 2024</p>
+<span class="inline-block px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/20 text-green-600 text-[10px] font-bold">APLICADA</span>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/40 shadow-sm">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600">
+<span class="material-symbols-outlined filled-icon">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base leading-tight">Rotavirus</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">1ra Dosis</p>
+</div>
+<div class="text-right">
+<p class="text-slate-900 dark:text-slate-100 font-medium text-xs">18 Jul 2024</p>
+<span class="inline-block px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/20 text-green-600 text-[10px] font-bold">APLICADA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4 Meses -->
+<div>
+<h3 class="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-widest mb-3 px-1">4 Meses</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 rounded-xl border-2 border-primary/30 bg-primary/5 dark:bg-primary/10 shadow-sm">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined filled-icon">schedule</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base leading-tight">Pentavalente</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">2da Dosis</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-xs italic">Hoy</p>
+<span class="inline-block px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold">PRÓXIMA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 6 Meses -->
+<div>
+<h3 class="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-widest mb-3 px-1">6 Meses</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20 opacity-70">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500">
+<span class="material-symbols-outlined">circle</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base leading-tight">Influenza</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">1ra Dosis estacional</p>
+</div>
+<div class="text-right">
+<p class="text-slate-400 dark:text-slate-500 font-medium text-xs">Nov 2024</p>
+<span class="inline-block px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 text-[10px] font-bold">PENDIENTE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800 px-4 pb-4 pt-2 flex justify-around z-20">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium">Inicio</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined filled-icon">vaccines</span>
+<p class="text-[10px] font-bold">Vacunas</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<p class="text-[10px] font-medium">Citas</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium">Perfil</p>
+</a>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Caja y Facturación Pediátrica</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="max-w-md mx-auto bg-white dark:bg-background-dark min-h-screen shadow-xl flex flex-col">
+<header class="flex items-center bg-white dark:bg-background-dark p-4 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 ml-2">Caja y Facturación</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-full size-10 bg-primary/10 text-primary">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<div class="px-4 py-5">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight mb-4">Detalles del Paciente</h2>
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 border-2 border-primary/20" data-alt="Retrato de un niño pequeño sonriendo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2Wc4oppBB-2fDI5aUqTPjwJ-0PgApZltBM406XRIALho5IYWVZJ_FpWuIih04tvS7ndZ_RmH29ybbXGrqqeVai0dnwkpZpIqLHM0-IGUxuK0s2inuIWdd-oyTX5n7ZxYQ-AFFH7OwIJR_ByhDkDcdrSK9WXqKjOu9P_2Vk6FQOPJ2k6Q8EP_gMu2sKUMdUpERKYEAJIMF7ipoV7ZMFWDV9nk45jAY-KE2VuO82vVrvSv7leWPHxndG3Ls4uodN9rMS19lkkT-EJp_");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold leading-normal">Mateo Sebastián Pérez</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">ID: 1029384-5 • Edad: 4 años</p>
+<span class="inline-flex items-center mt-1 text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full w-fit">
+                            Consulta Pediátrica General
+                        </span>
+</div>
+</div>
+</div>
+<div class="px-4 pb-5">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight mb-4">Detalle del Servicio</h2>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
+<div>
+<p class="text-slate-900 dark:text-slate-100 font-semibold">Consulta Médica Especializada</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Dr. Alejandro Méndez</p>
+</div>
+<p class="text-slate-900 dark:text-slate-100 font-bold text-lg">Q 350.00</p>
+</div>
+<div class="flex justify-between items-center p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
+<div>
+<p class="text-slate-900 dark:text-slate-100 font-semibold">Insumos y Materiales</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Uso de kit desechable</p>
+</div>
+<p class="text-slate-900 dark:text-slate-100 font-bold text-lg">Q 75.00</p>
+</div>
+</div>
+</div>
+<div class="px-4 pb-5">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight mb-4">Método de Pago</h2>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border-2 border-primary bg-primary/5 text-primary">
+<span class="material-symbols-outlined mb-1">payments</span>
+<span class="text-xs font-bold uppercase tracking-wider">Efectivo</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined mb-1 text-slate-500 dark:text-slate-400">credit_card</span>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Tarjeta</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined mb-1 text-slate-500 dark:text-slate-400">account_balance</span>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Transf.</span>
+</button>
+</div>
+</div>
+<div class="px-4 pb-10">
+<div class="bg-primary/10 rounded-2xl p-6 border border-primary/20">
+<div class="flex justify-between items-center mb-4">
+<span class="text-slate-600 dark:text-slate-400 font-medium">Total a Pagar</span>
+<span class="text-primary text-3xl font-black">Q 425.00</span>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all active:scale-95">
+<span class="material-symbols-outlined">receipt_long</span>
+                        Generar Factura (FEL)
+                    </button>
+</div>
+</div>
+<div class="px-4 pb-24">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-slate-900 dark:text-slate-100 font-bold">Resumen del Día</h3>
+<span class="text-xs text-primary font-semibold">Ver Todo</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900/30 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Factura #9928 - Sofía G.</span>
+</div>
+<span class="text-sm font-bold">Q 350.00</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900/30 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Factura #9927 - Luis M.</span>
+</div>
+<span class="text-sm font-bold">Q 500.00</span>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto border-t border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 pb-3 pt-2 flex justify-between">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Caja</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Pacientes</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Citas</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Reportes</p>
+</a>
+</nav>
+</div>
+</body></html>

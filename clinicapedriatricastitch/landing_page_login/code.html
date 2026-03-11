@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PediatricCare Plus - Modern Clinic Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-2">
+<div class="bg-primary text-white p-2 rounded-lg">
+<span class="material-symbols-outlined block">health_and_safety</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">PediatricCare Plus</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#features">Features</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#login">Client Login</a>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-sm">
+                        Request Demo
+                    </button>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-slate-600">menu</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider w-fit">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        Trusted by 500+ Pediatricians
+                    </div>
+<h1 class="text-5xl lg:text-6xl font-black leading-tight tracking-tight text-slate-900 dark:text-white">
+                        Integral Pediatric Care for <span class="text-primary">Modern Practices</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg">
+                        Experience the power of a PWA designed for parents and the efficiency doctors need. Manage growth charts, vaccinations, and schedules in one seamless platform.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+                            Get Started Now
+                        </button>
+<button class="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-lg hover:bg-slate-50 transition-colors">
+                            Watch Video
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square bg-primary/5 rounded-full absolute -top-12 -right-12 w-64 h-64 blur-3xl"></div>
+<div class="relative bg-white dark:bg-slate-900 p-4 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800">
+<div class="aspect-[4/3] rounded-2xl bg-slate-100 overflow-hidden" data-alt="Professional pediatrician smiling at a tablet screen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLlgtwTkJzsW9qx2adcDjOOlKKAoFda5x7kenYQE509qPsIFNxaG3OCYs04IgpM0mKne0SdQMI39V_aAvSJlmaJNQtyXRZ7XBlY6dn5S-BFVj5vcIbu77r0aL67rI3QTyw016LMhebloTXCn-fikjHOPyMurqU0_kYS_QgvP1ASP8127PdCc-tyofsbIwQhKmMajagMIxCAr5Fzbuzj1lovLaGAMeP9pBLkSe5g6zd_1uncC6FpTYndCCHiP6U7pZwzKGBubeQ3Mbw'); background-size: cover; background-position: center;">
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-100 dark:border-slate-700">
+<div class="bg-green-100 text-green-600 p-2 rounded-full">
+<span class="material-symbols-outlined block">monitoring</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 font-medium">Monthly Growth</p>
+<p class="text-lg font-bold">+12% Accuracy</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Value Proposition -->
+<section class="py-24 bg-white dark:bg-slate-900" id="features">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Features</h2>
+<h3 class="text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mb-6">Designed for the clinical reality of pediatricians</h3>
+<p class="text-slate-600 dark:text-slate-400">Streamline your daily workflow with tools built specifically for child healthcare providers and their patients' families.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-background-dark border border-transparent hover:border-primary/20 transition-all hover:shadow-xl">
+<div class="bg-primary/10 text-primary w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">show_chart</span>
+</div>
+<h4 class="text-xl font-bold mb-3">Growth Charts (OMS)</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Automatic calculation of percentiles and Z-scores using WHO standards. Interactive visual tracking for height, weight, and BMI.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-background-dark border border-transparent hover:border-primary/20 transition-all hover:shadow-xl">
+<div class="bg-primary/10 text-primary w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">vaccines</span>
+</div>
+<h4 class="text-xl font-bold mb-3">Digital Vaccination</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Smart schemes that adapt to each patient. Automatic reminders for parents and digital certificates for schools.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-background-dark border border-transparent hover:border-primary/20 transition-all hover:shadow-xl">
+<div class="bg-primary/10 text-primary w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">calendar_month</span>
+</div>
+<h4 class="text-xl font-bold mb-3">Smart Agenda</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Optimized scheduling that reduces no-shows with automated WhatsApp/Email confirmations and a intuitive drag-and-drop interface.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Login Area Integration -->
+<section class="py-24 bg-background-light dark:bg-background-dark relative" id="login">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1 space-y-6">
+<h2 class="text-4xl font-black text-slate-900 dark:text-white leading-tight">Access Your Digital Clinic</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400">
+                        Secure, encrypted access to your patient records and clinical tools. Whether you're at the hospital or on the go, PediatricCare Plus is always with you.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                            HIPAA Compliant Data Storage
+                        </li>
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                            Real-time Cloud Syncing
+                        </li>
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                            Multi-device PWA Access
+                        </li>
+</ul>
+</div>
+<div class="w-full max-w-[480px]">
+<div class="bg-white dark:bg-slate-900 p-8 lg:p-10 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800">
+<h3 class="text-2xl font-bold mb-8 text-center">Login to your account</h3>
+<form class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">mail</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="dr.smith@clinic.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">lock</span>
+<input class="w-full pl-12 pr-12 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+<input class="rounded text-primary focus:ring-primary" type="checkbox"/>
+                                    Remember me
+                                </label>
+<a class="text-sm font-bold text-primary hover:underline" href="#">Forgot Password?</a>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all" type="submit">
+                                Sign In
+                            </button>
+<p class="text-center text-sm text-slate-500 dark:text-slate-400">
+                                Don't have an account? <a class="text-primary font-bold hover:underline" href="#">Start free trial</a>
+</p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Footer -->
+<section class="py-20 bg-primary overflow-hidden relative">
+<div class="absolute inset-0 bg-primary/20 opacity-50" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+<div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+<h2 class="text-4xl lg:text-5xl font-black text-white mb-8">Ready to revolutionize your pediatric practice?</h2>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="px-10 py-5 bg-white text-primary rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-xl">
+                    Request Demo
+                </button>
+<button class="px-10 py-5 bg-primary-dark/20 backdrop-blur-sm border-2 border-white text-white rounded-2xl font-black text-xl hover:bg-white/10 transition-all">
+                    View Pricing
+                </button>
+</div>
+</div>
+</section>
+<footer class="bg-white dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="bg-primary/20 text-primary p-1 rounded-md">
+<span class="material-symbols-outlined block text-sm">health_and_safety</span>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">PediatricCare Plus</span>
+</div>
+<div class="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Cookie Policy</a>
+</div>
+<p class="text-sm text-slate-400">© 2024 PediatricCare Plus. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>

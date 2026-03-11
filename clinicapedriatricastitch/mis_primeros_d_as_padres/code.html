@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400,FILL@0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark shadow-xl overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center bg-white dark:bg-background-dark p-4 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-10">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight flex-1 text-center">Mis Primeros Días</h2>
+<div class="flex size-10 items-center justify-center">
+<button class="relative text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 block h-2.5 w-2.5 rounded-full bg-primary ring-2 ring-white"></span>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<!-- Hero Section / Digital Birth Card -->
+<div class="p-4">
+<div class="relative overflow-hidden rounded-xl bg-primary/10 p-6 flex flex-col items-center text-center gap-3 border border-primary/20">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/40 via-primary to-primary/40"></div>
+<div class="size-24 rounded-full border-4 border-white shadow-md overflow-hidden bg-slate-200" data-alt="Close up photo of a newborn sleeping peacefully">
+<img alt="Bebé" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo6pQzebBrQEyYjR6Rr9RD_uNdTCEIcR4QFdUVIwFMTcd2R4yGKX6mzkQwGkFKmx6kRwqjfzDW9_3ZiLNa1YwVZSYhs-Z9sEZCSHIrrSnAgSgCn95zP44Fop2wcNY_k7pfdNUi769Cc4CyMVaFIBmIm_g_epDe9pLS7hPzO1yCZ7sB9IpDpcGh9zsxDq-IJ8CC7ZZVDyaiPwybeqqjUikgrYxX1u3sAqZv0MRZLYVVEcMAgYSQH8wmwXyxRO18SSeOSvWHQ0A8XMBP"/>
+</div>
+<div>
+<p class="text-primary font-bold text-sm tracking-widest uppercase">¡Hola, soy yo!</p>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Mateo Nicolás</h1>
+<p class="text-slate-500 text-sm">Nacido el 15 de Octubre, 2023</p>
+</div>
+<div class="grid grid-cols-2 gap-4 w-full mt-2">
+<div class="bg-white dark:bg-slate-800 p-3 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary text-xl">monitor_weight</span>
+<p class="text-xs text-slate-500">Peso</p>
+<p class="font-bold text-slate-900 dark:text-slate-100">3.450 kg</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-3 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary text-xl">straighten</span>
+<p class="text-xs text-slate-500">Largo</p>
+<p class="font-bold text-slate-900 dark:text-slate-100">51.5 cm</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Feeding Tracker -->
+<section class="px-4 py-2">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Registro de Alimentación</h3>
+<button class="text-primary text-sm font-semibold">Ver historial</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800 rounded-xl border-2 border-transparent hover:border-primary/40 transition-all shadow-sm">
+<div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+</div>
+<span class="text-sm font-semibold">Lactancia</span>
+<span class="text-[10px] text-slate-400">Hace 2h 15m</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800 rounded-xl border-2 border-transparent hover:border-primary/40 transition-all shadow-sm">
+<div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+</div>
+<span class="text-sm font-semibold">Biberón</span>
+<span class="text-[10px] text-slate-400">Registrar ahora</span>
+</button>
+</div>
+</section>
+<!-- Checklist Section -->
+<section class="px-4 py-6">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold mb-3">Checklist 'Primeros Días'</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex-shrink-0">
+<input checked="" class="w-6 h-6 rounded-full border-primary text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-900 dark:text-slate-100 line-through opacity-50">Cura del cordón umbilical</p>
+<p class="text-xs text-slate-500">Realizado hoy a las 09:00 AM</p>
+</div>
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex-shrink-0">
+<input class="w-6 h-6 rounded-full border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-900 dark:text-slate-100">Primer baño en casa</p>
+<p class="text-xs text-slate-500">Preparar agua tibia (37°C)</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">bathtub</span>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex-shrink-0">
+<input class="w-6 h-6 rounded-full border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-slate-900 dark:text-slate-100">Control de temperatura</p>
+<p class="text-xs text-slate-500">Mañana y noche</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">thermostat</span>
+</div>
+</div>
+</section>
+<!-- Daily Summary Card -->
+<section class="px-4 py-2">
+<div class="bg-primary rounded-xl p-4 text-white shadow-lg shadow-primary/20">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-bold text-lg">Resumen de hoy</h4>
+<p class="text-white/80 text-sm">Día 4 en el mundo</p>
+</div>
+<span class="material-symbols-outlined opacity-80">event_note</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="text-center">
+<p class="text-xs opacity-80 uppercase font-bold tracking-tighter">Pañales</p>
+<p class="text-xl font-bold">6</p>
+</div>
+<div class="text-center border-x border-white/20">
+<p class="text-xs opacity-80 uppercase font-bold tracking-tighter">Tomas</p>
+<p class="text-xl font-bold">8</p>
+</div>
+<div class="text-center">
+<p class="text-xs opacity-80 uppercase font-bold tracking-tighter">Sueño</p>
+<p class="text-xl font-bold">14h</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto flex items-center justify-around border-t border-slate-100 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-4 pb-6 pt-3 z-20">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-bold">Inicio</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">book_2</span>
+<p class="text-[10px] font-medium">Diario</p>
+</a>
+<a class="flex flex-col items-center gap-1 -mt-8" href="#">
+<div class="bg-primary size-14 rounded-full flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-background-dark">
+<span class="material-symbols-outlined text-3xl">add</span>
+</div>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<p class="text-[10px] font-medium">Salud</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium">Perfil</p>
+</a>
+</nav>
+</div>
+</body></html>

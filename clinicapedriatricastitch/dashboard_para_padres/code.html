@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pediatric Parent Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-xl overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center bg-white dark:bg-slate-900 p-4 sticky top-0 z-10 border-b border-primary/10">
+<div class="flex size-10 shrink-0 items-center overflow-hidden rounded-full">
+<img class="h-full w-full object-cover" data-alt="Profile picture of a mother smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHYtjRGXNAlXE4dXkEjsecZOZ_lOpBQ8aRy5TifXdUgGMq5APhFyl6QENvPpjRoAiKxmrlVpjeKEca3NMVEge7zxYEruun_YWYQcyjip3AcNfKtWM8oR8QO5xW_UQw5-8j1lknFgF_Qf5Vtm7Ny91i4jWKNwVwVQvq_S9DIUPX33W3QWDnrf7WJOnfjtOgzDyidtB-TgkPU9h52zGh7fR1o_EWiiogZzlEeF1nhJmvAOFJql3kwZp5t5-an10VKbFZP9yBG3L09b4I"/>
+</div>
+<div class="ml-3 flex-1">
+<p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Sarah Jenkins</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="relative flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 flex h-2 w-2 rounded-full bg-red-500 border-2 border-white dark:border-slate-900"></span>
+</button>
+</div>
+</header>
+<!-- Child Switcher -->
+<section class="bg-white dark:bg-slate-900 px-4 py-6 border-b border-primary/5">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500">My Children</h3>
+<button class="text-primary text-sm font-medium">Manage</button>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-2 scrollbar-hide">
+<div class="flex flex-col items-center gap-2 min-w-[70px]">
+<div class="relative">
+<div class="size-16 rounded-full border-4 border-primary p-0.5">
+<img class="h-full w-full rounded-full object-cover" data-alt="Toddler boy with blond hair smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaitYHgShX_jmXMzpTo5RFvBSwlsssQwFT016aWN1Dv_cxH8RYLHx76nRBILAJPzz2pgvx-uJqbitK929Mv36Z3yVSqMch-0GWsTB_gzMoBMqCJwXUAUHNlzRT4WwBjZCl_VKslUJ12rM_jYtIxW0BlysRY_lufBsEAZE8cfh2bI40u4XaCtWb_vZuwkS_85aiGYU5QBeN73kVU5XoE8HRKDEU6659_iVrDZWJANYD3eeK3jscqn0Uq8c7kseABmSwfL1hI8AUk988"/>
+</div>
+<div class="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white text-[10px]">
+<span class="material-symbols-outlined !text-[14px]">check</span>
+</div>
+</div>
+<p class="text-slate-900 dark:text-white text-sm font-bold">Leo</p>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[70px] opacity-60">
+<div class="size-16 rounded-full border-2 border-slate-200 dark:border-slate-700">
+<img class="h-full w-full rounded-full object-cover" data-alt="Young girl with braided hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ3I9KQeVF7-bRL6buwx7nXYXetaJTIRd2xBXMZMbZSKkVZZrHpo_A4kocX4RwXdj4ob6SXemH7pkJwzgzJPxpqceaKvGGLMOAvjyxdkK7k2_Kaed_BO0HD93keND3356UW-ls_IIJqH_akT6JEQYZMVoDgVOF8CsFZ_Q1WcuYT1NLODfbU10ltm9aXMFpijXLMLeWA3AfsQZ9NbnUA_w1DRDb1KoZdHlpLFfgzkOE7K_2yGa1UKdaYzanLXzqlnnXu4cVIrZZ7BT4"/>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium">Mia</p>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[70px]">
+<button class="size-16 rounded-full border-2 border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">add</span>
+</button>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Add</p>
+</div>
+</div>
+</section>
+<!-- Main Dashboard Content -->
+<main class="flex-1 space-y-6 p-4">
+<!-- Quick Actions Grid -->
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm border border-primary/5 active:scale-95 transition-transform">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<span class="text-center text-[11px] font-bold text-slate-700 dark:text-slate-300">Book visit</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm border border-primary/5 active:scale-95 transition-transform">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<span class="text-center text-[11px] font-bold text-slate-700 dark:text-slate-300">Growth</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm border border-primary/5 active:scale-95 transition-transform">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">folder_shared</span>
+</div>
+<span class="text-center text-[11px] font-bold text-slate-700 dark:text-slate-300">Records</span>
+</button>
+</div>
+<!-- Upcoming Appointment Card -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Upcoming Visit</h3>
+<button class="text-primary text-sm font-semibold">See All</button>
+</div>
+<div class="rounded-2xl bg-primary p-5 text-white shadow-lg shadow-primary/20">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-primary-100 text-xs font-medium opacity-90">Tuesday, Oct 24, 2023</p>
+<h4 class="mt-1 text-lg font-bold">Annual Wellness Visit</h4>
+<div class="mt-4 flex items-center gap-3">
+<div class="size-10 rounded-full bg-white/20 p-0.5">
+<img class="h-full w-full rounded-full object-cover" data-alt="Portrait of male pediatrician" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQzyLjAxTco_XRSBIH4L4Oeb8k1D3zraycio3X6jzY8oXrdXx7eU8-d8VVRbP16Pla98oKGLmZTxnh-tpkT732Tpj24GC-gSvH85nHiS28xXuqoS3JfdSoHtEYr_Sg0_Su5BCWq6RvU0mLa_gXlUwi9hgWOC9BLw0ysPGxVkDFZt_gUzTUVS4UVIZrvHYt2lWkRvTR7ofDDQNctxyPI699rVMgLnG4gOvjDuEY4rQA4Li34NXSy95OKUDDO4sD7JSs6AvFaLbwR_OT"/>
+</div>
+<div>
+<p class="text-sm font-bold leading-tight">Dr. Sarah Smith</p>
+<p class="text-[11px] text-white/80">Pediatric Specialist</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-white/20 px-3 py-2 text-center">
+<span class="block text-[10px] uppercase font-bold tracking-tighter">Starts at</span>
+<span class="text-sm font-black">10:00 AM</span>
+</div>
+</div>
+<div class="mt-5 flex gap-2">
+<button class="flex-1 rounded-lg bg-white py-2 text-sm font-bold text-primary active:bg-slate-100">Check-in</button>
+<button class="flex-1 rounded-lg bg-white/20 py-2 text-sm font-bold text-white hover:bg-white/30">Directions</button>
+</div>
+</div>
+</div>
+<!-- Immunization Status Summary -->
+<div class="space-y-3">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Immunization Status</h3>
+<div class="rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm border border-primary/5">
+<div class="flex items-center gap-4">
+<div class="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 shrink-0">
+<span class="material-symbols-outlined !text-[32px]">vaccines</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white leading-tight">Upcoming: MMR Dose 2</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Due in 15 days • Leo is up to date</p>
+<div class="mt-3 h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Health Tips Feed -->
+<div class="space-y-3 pb-20">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Daily Health Tip</h3>
+<div class="relative rounded-2xl overflow-hidden aspect-[16/9] group">
+<img class="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105" data-alt="Kids playing outdoor in summer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZrFmW-qpWtkOfG0q0gWq7BWdg2N22kQnE9X6zmNUOQJtfy6lgjwUYNS09xpKYTtFZMO5I3sy-1fWheHlL3CrTjUXfpAUjPaOKkN5ak-mkTW8bPeeFuaMnLP6XjqoQnoP6JUKdmVhTu0V11Y9AbyYA7VI2BHEt7tRTDdIAEOlHv3lszjZEFwU1fXNfkXyz7PCsY51pfzi16LsI7JGd_3Pmq18FVqBvts1uuvAAmxdBcj58b_G3fs6KwTK1MQ4RF_u1kAEtQb8KKgSL"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent flex flex-col justify-end p-5">
+<span class="w-fit rounded bg-primary px-2 py-0.5 text-[10px] font-bold text-white uppercase">Nutrition</span>
+<h4 class="mt-2 text-base font-bold text-white leading-tight">Hydration tips for toddlers during summer outdoor play</h4>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 px-4 py-2 flex justify-between items-center z-20">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined !text-[26px]">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined !text-[26px]">ecg_heart</span>
+<span class="text-[10px] font-medium">Health</span>
+</a>
+<div class="relative -top-6">
+<button class="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined !text-[32px]">chat_bubble</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined !text-[26px]">prescriptions</span>
+<span class="text-[10px] font-medium">Meds</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined !text-[26px]">menu</span>
+<span class="text-[10px] font-medium">More</span>
+</a>
+</nav>
+</div>
+</body></html>

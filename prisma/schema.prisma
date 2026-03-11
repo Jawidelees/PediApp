@@ -1,0 +1,545 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  DOCTOR
+  RECEPTIONIST
+  PATIENT
+}
+
+model Clinic {
+  id               String   @id @default(cuid())
+  name             String
+  slug             String   @unique // Ej: 'sanatorio', 'pediatrica'
+  logoUrl          String?
+  regionalSettings Json? // Moneda, Timezone, etc.
+  
+  // Subscription & SaaS Status
+  planId           String?
+  plan             SubscriptionPlan? @relation(fields: [planId], references: [id])
+  subscriptionStatus String           @default("ACTIVE") // ACTIVE, SUSPENDED, TRIAL
+  expiresAt        DateTime?
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  deletedAt        DateTime? // Soft Delete
+
+  // Tenant Relations
+  users            User[]
+  services         Service[]
+  appointments     Appointment[]
+  inventory        InventoryItem[]
+  invoices         Invoice[]
+  medicalRecords   MedicalRecord[]
+  treatmentPlans   TreatmentPlan[]
+  growthRecords    GrowthRecord[]
+  vaccinations     VaccinationRecord[]
+  auditLogs        SecurityAuditLog[]
+  doctorProfiles   DoctorProfile[]
+  patientProfiles  PatientProfile[]
+  inventoryUsages  InventoryUsage[]
+  paymentTransactions PaymentTransaction[]
+  appNotifications AppNotification[]
+}
+
+model SubscriptionPlan {
+  id          String   @id @default(cuid())
+  name        String   // ej: "Gratis", "Pro", "Enterprise"
+  price       Decimal  @default(0)
+  maxPatients Int?     // null if unlimited
+  maxDoctors  Int?
+  features    Json?    // Array of strings or config object
+  
+  clinics     Clinic[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ===== REGISTRATIONS / ONBOARDING =====
+model ClinicRegistration {
+  id            String   @id @default(cuid())
+  clinicName    String
+  contactName   String
+  contactEmail  String
+  contactPhone  String?
+  status        String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  notes         String?  @db.Text
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ===== AUTH & USERS (NextAuth v5 Adapter) =====
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+
+model User {
+  id            String    @id @default(cuid())
+  email         String?   @unique
+  username      String?   @unique
+  emailVerified DateTime?
+  password      String // Hashed (Optional if strictly social login, but we allow mixed)
+  name          String?
+  image         String?
+  role      Role      @default(PATIENT)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  // NextAuth
+  accounts Account[]
+  sessions Session[]
+
+  // Profile Relations
+  doctorProfile  DoctorProfile?
+  patientProfile PatientProfile?
+
+  // Audit
+  createdAppointments Appointment[] @relation("CreatedBy")
+  auditLogs           SecurityAuditLog[] @relation("UserAuditLogs")
+
+  // Push Notifications (Admin/Staff/Patient can have devices)
+  pushSubscriptions NotificationSubscription[]
+  appNotifications  AppNotification[]          @relation("UserNotifications")
+
+  @@index([clinicId, deletedAt])
+  @@index([email])
+  @@index([username])
+}
+
+model DoctorProfile {
+  id        String    @id @default(cuid())
+  userId    String    @unique
+  user      User      @relation(fields: [userId], references: [id])
+  specialty String    @default("Pediatría General")
+  license   String?
+  deletedAt DateTime? // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  appointments Appointment[]
+
+  @@index([clinicId, deletedAt])
+}
+
+model PatientProfile {
+  id        String    @id @default(cuid())
+  userId    String    @unique
+  user      User      @relation(fields: [userId], references: [id])
+  phone     String?
+  address   String?
+  nit       String? // Para Facturación FEL
+  birthDate DateTime?
+  deletedAt DateTime? // Soft Delete
+
+  // Pediatric specifics
+  allergies String? @db.Text
+  bloodType String? // A+, O-, etc.
+
+  // Perinatal History
+  gestationalWeeks Int?
+  birthWeight      Decimal? // kg
+  birthHeight      Decimal? // cm
+  apgarScore       String? // ej: "9/10"
+  perinatalNotes   String?  @db.Text
+
+  // Family: Parent linking (User ID del padre/madre)
+  parentId String?
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  appointments   Appointment[]
+  medicalRecords MedicalRecord[]
+  treatmentPlans TreatmentPlan[]
+  growthRecords  GrowthRecord[]
+  vaccinations   VaccinationRecord[]
+
+  @@index([clinicId, deletedAt])
+}
+
+model Service {
+  id          String    @id @default(cuid())
+  name        String // Ej: Control Niño Sano, Vacunación, Consulta General
+  description String?
+  price       Decimal
+  duration    Int // Minutos
+  active      Boolean   @default(true)
+  deletedAt   DateTime? // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  appointments Appointment[]
+
+  @@index([clinicId, deletedAt])
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+model Appointment {
+  id     String            @id @default(cuid())
+  date   DateTime
+  status AppointmentStatus @default(SCHEDULED)
+  deletedAt DateTime?      // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  patientId String
+  patient   PatientProfile @relation(fields: [patientId], references: [id])
+
+  doctorId String
+  doctor   DoctorProfile @relation(fields: [doctorId], references: [id])
+
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id])
+
+  createdById String
+  createdBy   User   @relation("CreatedBy", fields: [createdById], references: [id])
+
+  // Relations
+  inventoryUsage InventoryUsage[]
+  invoice        Invoice?
+  medicalRecord  MedicalRecord?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clinicId, deletedAt])
+  @@index([clinicId, date])
+}
+
+model InventoryItem {
+  id          String    @id @default(cuid())
+  name        String // Ej: Vacuna BCG, Jeringa Pediátrica
+  sku         String?   @unique
+  description String?
+  deletedAt   DateTime? // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  // --- Fractioning Logic ---
+  unitsPerPackage  Int    @default(1) // Units per package (e.g. 10 doses per vial)
+  unitName         String @default("Frasco") // Major unit name
+  baseUnitName     String @default("Dosis") // Minor unit name
+  openPackageUnits Int    @default(0) // Units available in the currently open package
+
+  stock     Int     @default(0) // Sealed/Full packages
+  minStock  Int     @default(10) // Low stock alert (measured in packages)
+  unitPrice Decimal @default(0) // Sales price per base unit
+  costPrice Decimal @default(0) // Cost per package for reports
+
+  usages InventoryUsage[]
+
+  updatedAt DateTime @updatedAt
+
+  @@index([clinicId, deletedAt])
+}
+
+model InventoryUsage {
+  id            String      @id @default(cuid())
+  appointmentId String
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+
+  inventoryId String
+  inventory   InventoryItem @relation(fields: [inventoryId], references: [id])
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  quantity Int
+  billed   Boolean @default(false) // ¿Se incluyó en la factura como extra?
+
+  createdAt DateTime @default(now())
+
+  @@index([clinicId])
+}
+
+enum PaymentStatus {
+  PENDING
+  PARTIAL
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+model Invoice {
+  id            String      @id @default(cuid())
+  appointmentId String      @unique
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  deletedAt     DateTime?   // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  totalAmount Decimal
+
+  // Campos FEL (Factura Electrónica en Línea) - Guatemala
+  felUuid   String? // UUID devuelto por el certificador
+  felSeries String?
+  felNumber String?
+  felJson   Json? // Payload JSON completo para/de FEL
+
+  status        PaymentStatus @default(PENDING)
+  paymentMethod String? // Card, Cash, PayBI, Transfer (Legacy/Primary)
+  paymentRef    String? // Transfer reference number (Legacy/Primary)
+  attachmentUrl String? // Screenshot/receipt URL (Legacy/Primary)
+  promisedDate  DateTime? // Fecha prometida de pago para cobros parciales o pendientes
+
+  transactions PaymentTransaction[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clinicId, deletedAt])
+}
+
+model PaymentTransaction {
+  id        String  @id @default(cuid())
+  invoiceId String
+  invoice   Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  amount        Decimal
+  paymentMethod String // Card, Cash, PayBI, Transfer
+  paymentRef    String?
+  attachmentUrl String?
+  notes         String?
+
+  createdBy String? // Reference to User ID who processed it
+  createdAt DateTime @default(now())
+
+  @@index([clinicId])
+}
+
+model MedicalRecord {
+  id            String      @id @default(cuid())
+  appointmentId String      @unique
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  deletedAt     DateTime?   // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  patientId String
+  patient   PatientProfile @relation(fields: [patientId], references: [id])
+
+  diagnosis     String? @db.Text
+  notes         String? @db.Text
+  prescription  String? @db.Text
+  treatmentPlan String? @db.Text // Plan de tratamiento pediátrico
+
+  aiAdvice String?  @db.Text // Consejo generado por AI basado en diagnóstico
+  painMap  Json? // Coordenadas y metadatos del mapa de síntomas interactivo
+  photos   String[] // URLs de fotos de progreso (Radiografías, Estudios)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clinicId, deletedAt])
+}
+
+enum TreatmentPlanStatus {
+  ACTIVE
+  PAUSED
+  COMPLETED
+  CANCELLED
+}
+
+model TreatmentPlan {
+  id        String         @id @default(cuid())
+  patientId String
+  patient   PatientProfile @relation(fields: [patientId], references: [id])
+  deletedAt DateTime?      // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  title        String
+  description  String?             @db.Text
+  totalPhases  Int                 @default(1)
+  currentPhase Int                 @default(1)
+  status       TreatmentPlanStatus @default(ACTIVE)
+
+  startDate        DateTime  @default(now())
+  estimatedEndDate DateTime?
+  actualEndDate    DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clinicId, deletedAt])
+}
+
+// ===== PEDIATRIC-SPECIFIC MODELS =====
+
+model GrowthRecord {
+  id        String         @id @default(cuid())
+  patientId String
+  patient   PatientProfile @relation(fields: [patientId], references: [id])
+  deletedAt DateTime?      // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  date                DateTime @default(now())
+  weightKg            Decimal?
+  heightCm            Decimal?
+  headCircumferenceCm Decimal?
+  bmi                 Decimal?
+  notes               String?  @db.Text
+
+  // WHO Percentiles (calculated on the frontend)
+  weightPercentile Decimal?
+  heightPercentile Decimal?
+  headPercentile   Decimal?
+
+  createdAt DateTime @default(now())
+
+  @@index([clinicId, deletedAt])
+}
+
+enum VaccineStatus {
+  APPLIED
+  PENDING
+  OVERDUE
+  SKIPPED
+}
+
+model VaccinationRecord {
+  id        String         @id @default(cuid())
+  patientId String
+  patient   PatientProfile @relation(fields: [patientId], references: [id])
+  deletedAt DateTime?      // Soft Delete
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  vaccineName  String // Ej: BCG, DPT, MMR, Hepatitis B
+  dose         String // "1ra dosis", "2da dosis", "Refuerzo"
+  status       VaccineStatus @default(PENDING)
+  appliedDate  DateTime?
+  nextDoseDate DateTime?
+  lotNumber    String?
+  notes        String?       @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clinicId, deletedAt])
+}
+
+// ===== NOTIFICATIONS =====
+
+model NotificationSubscription {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  endpoint String @db.Text
+  p256dh   String
+  auth     String
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, endpoint])
+}
+
+model AppNotification {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation("UserNotifications", fields: [userId], references: [id], onDelete: Cascade)
+
+  clinicId String?
+  clinic   Clinic? @relation(fields: [clinicId], references: [id])
+
+  title   String
+  message String  @db.Text
+  type    String  @default("INFO") // INFO, SUCCESS, WARNING, ERROR
+  link    String? // Optional URL to navigate to
+  read    Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([clinicId, userId])
+}
+
+// ===== SECURITY & AUDIT =====
+
+model SecurityAuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation("UserAuditLogs", fields: [userId], references: [id])
+  clinicId  String?
+  clinic    Clinic?  @relation(fields: [clinicId], references: [id])
+  action     String   // Ej: "READ_MEDICAL_RECORD", "EXPORT_PATIENT_DATA", "CREATE_PATIENT"
+  resource   String   // Ej: "MedicalRecord", "PatientProfile"
+  resourceId String?  // ID del registro accedido
+  metadata   Json?    // Datos adicionales (before/after para mutaciones)
+  ipAddress  String? 
+  userAgent  String?  @db.Text
+  
+  createdAt DateTime @default(now())
+
+  @@index([clinicId, createdAt])
+  @@index([userId, createdAt])
+}

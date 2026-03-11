@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>Centro de Ayuda - Clínica Pediátrica</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark shadow-xl overflow-x-hidden">
+<!-- Header -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 transition-colors cursor-pointer" data-icon="arrow_back">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Centro de Ayuda</h2>
+</div>
+<!-- Hero Section -->
+<div class="px-4 py-6 bg-gradient-to-b from-primary/10 to-transparent">
+<h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2 text-center">¡Hola! 👋</h1>
+<p class="text-slate-600 dark:text-slate-400 text-center mb-6">¿En qué podemos ayudar a tu pequeño hoy?</p>
+<!-- Search Bar -->
+<label class="flex flex-col w-full">
+<div class="flex w-full items-stretch rounded-xl h-14 shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="text-slate-400 flex bg-white dark:bg-slate-800 items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full border-none bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-0 h-full placeholder:text-slate-400 px-4 pl-2 text-base font-normal" placeholder="Buscar citas, vacunas, trámites..." value=""/>
+</div>
+</label>
+</div>
+<!-- FAQ Categories -->
+<div class="px-4 py-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold tracking-tight">Categorías Populares</h3>
+<span class="text-primary text-sm font-semibold">Ver todas</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/50 p-4 hover:border-primary/50 transition-all cursor-pointer group">
+<div class="bg-primary/10 text-primary w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-base font-bold">Citas</h2>
+<p class="text-xs text-slate-500 dark:text-slate-400">Agendar, cancelar y recordatorios</p>
+</div>
+<div class="flex flex-col gap-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/50 p-4 hover:border-primary/50 transition-all cursor-pointer group">
+<div class="bg-primary/10 text-primary w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">vaccines</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-base font-bold">Vacunas</h2>
+<p class="text-xs text-slate-500 dark:text-slate-400">Esquema nacional y dosis</p>
+</div>
+<div class="flex flex-col gap-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/50 p-4 hover:border-primary/50 transition-all cursor-pointer group">
+<div class="bg-primary/10 text-primary w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-base font-bold">Facturación</h2>
+<p class="text-xs text-slate-500 dark:text-slate-400">Pagos, seguros y boletas</p>
+</div>
+<div class="flex flex-col gap-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/50 p-4 hover:border-primary/50 transition-all cursor-pointer group">
+<div class="bg-primary/10 text-primary w-10 h-10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">medical_information</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-base font-bold">Telemedicina</h2>
+<p class="text-xs text-slate-500 dark:text-slate-400">Consultas por videollamada</p>
+</div>
+</div>
+</div>
+<!-- Contact Support -->
+<div class="px-4 py-6 mt-2">
+<div class="bg-primary/5 rounded-2xl p-6 border border-primary/10">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold mb-1 text-center">¿Aún tienes dudas?</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm text-center mb-6">Estamos aquí para cuidarte. Contáctanos por el canal de tu preferencia.</p>
+<div class="space-y-3">
+<a class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow" href="#">
+<div class="flex items-center justify-center w-10 h-10 bg-green-100 text-green-600 rounded-full">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">WhatsApp</p>
+<p class="text-xs text-slate-500">Respuesta rápida</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow" href="#">
+<div class="flex items-center justify-center w-10 h-10 bg-blue-100 text-blue-600 rounded-full">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Llamada telefónica</p>
+<p class="text-xs text-slate-500">Lunes a Sábado, 8am - 8pm</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow" href="#">
+<div class="flex items-center justify-center w-10 h-10 bg-slate-100 text-slate-600 rounded-full">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Correo Electrónico</p>
+<p class="text-xs text-slate-500">soporte@pediacare.com</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Footer Spacer -->
+<div class="h-20"></div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-slate-100 dark:border-slate-800">
+<div class="flex gap-2 px-4 pb-4 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">home</span>
+</div>
+<p class="text-[10px] font-medium leading-normal">Inicio</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<p class="text-[10px] font-medium leading-normal">Citas</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">monitor_heart</span>
+</div>
+<p class="text-[10px] font-medium leading-normal">Salud</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">help</span>
+</div>
+<p class="text-[10px] font-bold leading-normal">Ayuda</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>

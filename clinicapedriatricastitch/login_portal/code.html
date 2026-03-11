@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>PediatricCare Plus | Secure Login</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center bg-white dark:bg-background-dark p-4 justify-between border-b border-primary/10">
+<div class="flex items-center gap-2">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-2xl">child_care</span>
+</div>
+<h1 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">PediatricCare Plus</h1>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="text-sm font-medium text-primary hover:text-primary/80">Support</button>
+<button class="text-sm font-medium text-primary hover:text-primary/80">Privacy Policy</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center p-4 relative">
+<div class="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-3xl"></div>
+<div class="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5" data-alt="Subtle abstract childhood themed background pattern">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="smallGrid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#smallGrid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+</div>
+<div class="w-full max-w-md z-10">
+<div class="bg-white dark:bg-slate-900 shadow-xl rounded-xl overflow-hidden border border-primary/10">
+<div class="relative h-48 w-full bg-primary/5 overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-8xl text-primary/20">medical_services</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900 to-transparent"></div>
+<div class="absolute bottom-4 left-0 right-0 text-center px-4">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Welcome Back</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Please enter your details to access your portal</p>
+</div>
+</div>
+<div class="px-6 py-4">
+<div class="flex h-12 w-full items-center justify-center rounded-xl bg-primary/5 dark:bg-primary/10 p-1 mb-8">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-800 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Parent Login</span>
+<input checked="" class="hidden" name="login-type" type="radio" value="parent"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-800 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Medical Staff</span>
+<input class="hidden" name="login-type" type="radio" value="staff"/>
+</label>
+</div>
+<form class="space-y-5">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Email or Medical ID</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">alternate_email</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-xl border border-primary/20 dark:border-primary/30 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400" placeholder="name@example.com" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center ml-1">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Password</label>
+<a class="text-xs font-semibold text-primary hover:underline" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">lock</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-xl border border-primary/20 dark:border-primary/30 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-1">
+<input class="rounded border-primary/30 text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="text-sm text-slate-600 dark:text-slate-400" for="remember">Remember this device</label>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</form>
+<div class="mt-8 pt-6 border-t border-primary/10 text-center">
+<div class="text-sm text-slate-500 dark:text-slate-400 mb-4">New to PediatricCare Plus?</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-primary/20 hover:bg-primary/5 transition-colors group">
+<span class="material-symbols-outlined text-primary mb-1">person_add</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">Create Account</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-primary/20 hover:bg-primary/5 transition-colors group">
+<span class="material-symbols-outlined text-primary mb-1">domain_add</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">Register Clinic</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 px-6 py-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">verified_user</span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-primary/80">Secured with 256-bit Encryption</span>
+</div>
+</div>
+<div class="mt-8 flex justify-center gap-6 text-xs font-medium text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary" href="#">Contact Support</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">HIPAA Compliance</a>
+</div>
+</div>
+</main>
+<footer class="p-6 text-center text-xs text-slate-400 dark:text-slate-500">
+            © 2024 PediatricCare Plus. All rights reserved. Professional healthcare management made simple.
+        </footer>
+</div>
+</body></html>
