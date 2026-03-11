@@ -527,8 +527,8 @@ model AppNotification {
 
 model SecurityAuditLog {
   id        String   @id @default(cuid())
-  userId    String
-  user      User     @relation("UserAuditLogs", fields: [userId], references: [id])
+  userId    String?
+  user      User?    @relation("UserAuditLogs", fields: [userId], references: [id])
   clinicId  String?
   clinic    Clinic?  @relation(fields: [clinicId], references: [id])
   action     String   // Ej: "READ_MEDICAL_RECORD", "EXPORT_PATIENT_DATA", "CREATE_PATIENT"

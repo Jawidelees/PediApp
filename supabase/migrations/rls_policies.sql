@@ -264,25 +264,17 @@ CREATE OR REPLACE TRIGGER prevent_hard_delete_treatment_plans
 
 CREATE OR REPLACE FUNCTION audit_medical_changes()
 RETURNS TRIGGER AS $$
+DECLARE
+  v_user_id TEXT;
 BEGIN
-  IF TG_OP = 'INSERT' THEN
+  -- Get user ID from session context, NULL if not set
+  v_user_id := NULLIF(current_setting('app.current_user_id', true), '');
+  
+  IF TG_OP = 'INSERT' OR TG_OP = 'UPDATE' THEN
     INSERT INTO "SecurityAuditLog" (id, "userId", "clinicId", action, resource, "resourceId", metadata, "createdAt")
     VALUES (
       gen_random_uuid()::text,
-      COALESCE(current_setting('app.current_user_id', true), 'SYSTEM'),
-      NEW."clinicId",
-      'DB_TRIGGER_' || TG_OP,
-      TG_TABLE_NAME,
-      NEW.id,
-      jsonb_build_object('operation', TG_OP),
-      NOW()
-    );
-    RETURN NEW;
-  ELSIF TG_OP = 'UPDATE' THEN
-    INSERT INTO "SecurityAuditLog" (id, "userId", "clinicId", action, resource, "resourceId", metadata, "createdAt")
-    VALUES (
-      gen_random_uuid()::text,
-      COALESCE(current_setting('app.current_user_id', true), 'SYSTEM'),
+      v_user_id,  -- NULL if no user context (safe for FK)
       NEW."clinicId",
       'DB_TRIGGER_' || TG_OP,
       TG_TABLE_NAME,
